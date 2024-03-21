@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class PlayerHealth : HealthBase
 {
-    public override void ApplyDamage(IHealth health, float value)
+    public override void ApplyDamage(float value)
     {
-        base.ApplyDamage(health, value);
-        print("health: " + health);
+        base.ApplyDamage(value);
     }
 }

@@ -16,11 +16,10 @@ public abstract class HealthBase : MonoBehaviour, IDamageable, IHealth
         Health = Istat.BaseStat.health;
     }
 
-    public virtual void ApplyDamage(IHealth health, float value)
+    public virtual void ApplyDamage(float value)
     {
-        health.Health -= value;
+        Health -= value;
         CheckHealth();
-        if (IsDead) return;
     }
 
     private void CheckHealth()
@@ -29,6 +28,7 @@ public abstract class HealthBase : MonoBehaviour, IDamageable, IHealth
         if (IsDead)
         {
             Die();
+            return;
         }
     }
 
