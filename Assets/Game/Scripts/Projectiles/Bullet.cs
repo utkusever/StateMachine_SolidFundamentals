@@ -14,4 +14,8 @@ public class Bullet : Projectile
     {
         transform.Translate(direction * (Time.deltaTime * speed), Space.World);
     }
+
+    protected override void Destroy()
+    {
+    }
 }

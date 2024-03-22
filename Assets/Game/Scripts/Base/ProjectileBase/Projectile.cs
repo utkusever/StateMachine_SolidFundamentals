@@ -8,17 +8,17 @@ public abstract class Projectile : MonoBehaviour
 {
     [SerializeField] protected float damageValue;
     [SerializeField] protected float speed;
-    
+
     protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent(out IDamageable damageable))
         {
             damageable.ApplyDamage(damageValue);
-            OnTriggerPlayer();
+            OnTriggerDamageable();
         }
     }
 
-    protected virtual void OnTriggerPlayer()
+    protected virtual void OnTriggerDamageable()
     {
         SpawnEffect();
         Destroy();
@@ -28,8 +28,5 @@ public abstract class Projectile : MonoBehaviour
     {
     }
 
-    protected virtual void Destroy()
-    {
-        Destroy(this.gameObject);
-    }
+    protected abstract void Destroy();
 }
