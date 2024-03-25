@@ -13,8 +13,8 @@ public class Missile : Projectile
     {
         if (target == null)
         {
-            return;
             Destroy();
+            return;
         }
 
         this.transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
