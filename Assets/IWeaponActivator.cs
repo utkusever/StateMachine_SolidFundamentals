@@ -1,6 +1,6 @@
 public interface IWeaponActivator
 {
-    void ActivateWeapons(Weapon[] weapons);
+    void ActivateWeapon();
 
-    void DeActivateWeapons(Weapon[] weapons);
+    void DeActivateWeapon();
 }

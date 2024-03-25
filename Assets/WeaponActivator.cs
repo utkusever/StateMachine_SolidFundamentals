@@ -2,21 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponActivator : MonoBehaviour, IWeaponActivator
+public class WeaponActivator : IWeaponActivator
 {
-    public void ActivateWeapons(Weapon[] weapons)
+    private readonly Weapon weapon;
+
+    public WeaponActivator(Weapon weapon)
     {
-        foreach (var weapon in weapons)
-        {
-            weapon.enabled = true;
-        }
+        this.weapon = weapon;
     }
 
-    public void DeActivateWeapons(Weapon[] weapons)
+    public void ActivateWeapon()
     {
-        foreach (var weapon in weapons)
-        {
-            weapon.enabled = false;
-        }
+        weapon.enabled = true;
+    }
+
+    public void DeActivateWeapon()
+    {
+        weapon.enabled = false;
     }
 }

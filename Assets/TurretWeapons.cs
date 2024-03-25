@@ -6,21 +6,26 @@ public class TurretWeapons : MonoBehaviour, IOnPlayerCollide
 {
     [SerializeField] private Weapon[] weapons;
 
-    private IWeaponActivator weaponActivator;
+    private IWeaponActivator weaponActivatorBullet;
+    private IWeaponActivator weaponActivatorMissile;
 
     void Start()
     {
-        weaponActivator = this.GetComponent<IWeaponActivator>();
-        weaponActivator.DeActivateWeapons(weapons);
+        weaponActivatorBullet = new WeaponActivator(weapons[0]);
+        weaponActivatorMissile = new WeaponActivator(weapons[1]);
+        weaponActivatorBullet.DeActivateWeapon();
+        weaponActivatorMissile.DeActivateWeapon();
     }
 
     public void OnPlayerCollide(Collider other)
     {
-        weaponActivator.ActivateWeapons(weapons);
+        weaponActivatorBullet.ActivateWeapon();
+        weaponActivatorMissile.ActivateWeapon();
     }
 
     public void OnPlayerExitCollide(Collider other)
     {
-        weaponActivator.DeActivateWeapons(weapons);
+        weaponActivatorBullet.DeActivateWeapon();
+        weaponActivatorMissile.DeActivateWeapon();
     }
 }

@@ -8,7 +8,7 @@ public class Weapon : MonoBehaviour
 
     private void Start()
     {
-        timer = 0;
+        timer = coolDown;
         launcher = this.GetComponent<ILauncher>();
     }
 
