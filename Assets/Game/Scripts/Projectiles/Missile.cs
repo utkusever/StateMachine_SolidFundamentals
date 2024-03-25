@@ -11,11 +11,18 @@ public class Missile : Projectile
 
     private void Update()
     {
+        if (target == null)
+        {
+            return;
+            Destroy();
+        }
+
         this.transform.position = Vector3.MoveTowards(this.transform.position, target.position, speed * Time.deltaTime);
         this.transform.LookAt(target);
     }
 
     protected override void Destroy()
     {
+        Destroy(this.gameObject);
     }
 }

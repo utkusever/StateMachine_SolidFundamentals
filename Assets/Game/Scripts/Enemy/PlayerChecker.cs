@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerChecker : MonoBehaviour
 {
     private IOnPlayerCollide onPlayerCollide;
+
     private void Start()
     {
         onPlayerCollide = this.GetComponent<IOnPlayerCollide>();
@@ -13,11 +14,17 @@ public class PlayerChecker : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        onPlayerCollide.OnPlayerCollide(other);
+        if (other.CompareTag("Player"))
+        {
+            onPlayerCollide.OnPlayerCollide(other);
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        onPlayerCollide.OnPlayerExitCollide(other);
+        if (other.CompareTag("Player"))
+        {
+            onPlayerCollide.OnPlayerExitCollide(other);
+        }
     }
 }

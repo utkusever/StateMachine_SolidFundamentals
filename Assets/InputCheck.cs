@@ -19,8 +19,8 @@ public class InputCheck : IInput
         {
             lastInput = Input.mousePosition;
             var deltaPos = (lastInput - firstInput).normalized;
-            HasInput = lastInput != firstInput;
             CalculateDirection(deltaPos);
+            HasInput = lastInput != firstInput;
         }
 
         if (Input.GetMouseButtonUp(0))

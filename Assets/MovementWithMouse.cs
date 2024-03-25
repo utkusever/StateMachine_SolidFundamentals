@@ -12,7 +12,7 @@ public class MovementWithMouse : IMover
         this.playerMovement = playerMovement;
         this.input = input;
         speed = stat.speed;
-        turnSpeed = speed * 100f;
+        turnSpeed = speed * 300f;
     }
 
     public void Movement()
