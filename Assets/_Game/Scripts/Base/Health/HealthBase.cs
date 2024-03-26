@@ -3,12 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using Game.Scripts.Base.Enemy;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class HealthBase : MonoBehaviour, IDamageable, IHealth
 {
-    [field: SerializeField] public float Health { get; set; }
+    public float Health
+    {
+        get => health;
+        set
+        {
+            health = value;
+            healthEvent?.Invoke(health);
+        }
+    }
+
     public bool IsDead { get; set; }
     private IStats Istat;
+    public UnityEvent<float> healthEvent;
+    [SerializeField] private float health;
 
     private void Start()
     {

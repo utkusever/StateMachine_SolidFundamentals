@@ -7,24 +7,35 @@ public class PlayerChecker : MonoBehaviour
 {
     private IOnPlayerCollide onPlayerCollide;
 
-    private void Start()
+    protected virtual void Start()
     {
         onPlayerCollide = this.GetComponent<IOnPlayerCollide>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    protected virtual void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            onPlayerCollide.OnPlayerCollide(other);
+            OnPlayerEnter(other);
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    protected virtual void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            onPlayerCollide.OnPlayerExitCollide(other);
+            OnPlayerExit(other);
         }
+    }
+
+    protected virtual void OnPlayerEnter(Collider other)
+    {
+        onPlayerCollide.OnPlayerCollide(other);
+    }
+
+
+    protected virtual void OnPlayerExit(Collider other)
+    {
+        onPlayerCollide.OnPlayerExitCollide(other);
     }
 }
