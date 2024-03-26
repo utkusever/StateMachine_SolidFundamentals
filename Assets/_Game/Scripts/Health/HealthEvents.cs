@@ -1,10 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Game.Scripts.Base.Enemy;
-using UnityEngine;
-
-public class HealthEventEffects : MonoBehaviour
+public class HealthEvents : HealthEventsSubject
 {
     private float currentHealth;
     private float tempHealth;
@@ -14,12 +8,13 @@ public class HealthEventEffects : MonoBehaviour
         currentHealth = value;
         if (currentHealth < tempHealth)
         {
-            //took dmg
+            base.NotifyObservers(-value);
             print("took dmg");
         }
 
         if (currentHealth > tempHealth)
         {
+            base.NotifyObservers(value);
             print("healed");
         }
 
