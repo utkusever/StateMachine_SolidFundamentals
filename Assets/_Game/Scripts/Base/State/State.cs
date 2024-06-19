@@ -6,10 +6,8 @@ namespace Game.Scripts.Base
     {
         protected StateController stateController;
 
-        public void OnStateEnter(StateController stateController)
+        public void OnStateEnter()
         {
-            this.stateController = stateController;
-            Debug.Log("base state enter");
             OnEnter();
         }
 

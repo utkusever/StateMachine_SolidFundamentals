@@ -8,7 +8,7 @@ internal class ToChaseOnPlayerColliding : MonoBehaviour, IOnPlayerCollide
     {
         if (other.CompareTag("Player"))
         {
-            stateController.ChangeState(stateController.chaseState);
+          //  stateController.ChangeState(stateController.chaseState);
         }
     }
 
@@ -16,7 +16,7 @@ internal class ToChaseOnPlayerColliding : MonoBehaviour, IOnPlayerCollide
     {
         if (other.CompareTag("Player"))
         {
-            stateController.ChangeState(stateController.patrolState);
+         //   stateController.ChangeState(stateController.patrolState);
         }
     }
 }

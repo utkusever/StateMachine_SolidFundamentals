@@ -11,7 +11,7 @@ public class ToAttackOnPlayerColliding : MonoBehaviour, IOnPlayerCollide
     {
         if (other.CompareTag("Player"))
         {
-            stateController.ChangeState(stateController.AttackState);
+            //stateController.ChangeState(stateController.AttackState);
         }
     }
 
@@ -19,7 +19,7 @@ public class ToAttackOnPlayerColliding : MonoBehaviour, IOnPlayerCollide
     {
         if (other.CompareTag("Player"))
         {
-            stateController.ChangeState(stateController.patrolState);
+            //stateController.ChangeState(stateController.patrolState);
         }
     }
 }

@@ -9,17 +9,8 @@ public class StateController : MonoBehaviour
 {
     private State currentState;
     private StateUpdateable currentStateUpdateable;
-    public IdleState idleState = new();
-    public PatrolState patrolState = new();
-    public ChaseState chaseState = new();
-    public AttackState AttackState = new();
 
-    private void Start()
-    {
-        //  ChangeState(idleState);
-    }
-
-    private void Update()
+    protected virtual void Update()
     {
         if (currentStateUpdateable != null)
         {
@@ -27,7 +18,7 @@ public class StateController : MonoBehaviour
         }
     }
 
-    public void ChangeState(State newState)
+    public virtual void ChangeState(State newState)
     {
         if (currentState != null)
         {
@@ -36,6 +27,6 @@ public class StateController : MonoBehaviour
 
         currentStateUpdateable = newState as StateUpdateable;
         currentState = (State)newState;
-        newState.OnStateEnter(this);
+        newState.OnStateEnter();
     }
 }
